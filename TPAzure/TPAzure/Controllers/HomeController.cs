@@ -10,6 +10,12 @@ namespace TPAzure.Controllers
     {
         public ActionResult Index()
         {
+
+            using (DAO.adzadEntities adzadEntities = new DAO.adzadEntities())
+            {
+                var dsqqs = adzadEntities.pubs.ToList();
+                int count = adzadEntities.pubs.Count();
+            }
             return View();
         }
 

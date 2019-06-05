@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TPAzure.DAO;
 using TPAzure.Models;
 
 namespace TPAzure.Controllers
@@ -21,9 +22,21 @@ namespace TPAzure.Controllers
             //Do somthing
         }
 
-        public void Add(Advert newAdvert)
+        public void Add(pub newPub)
         {
-            // Add advert
+            using (DAO.adzadEntities adzadEntities = new DAO.adzadEntities())
+            {
+                adzadEntities.pubs.Add(newPub);
+                adzadEntities.SaveChanges();
+
+                int count = adzadEntities.pubs.Count();
+            }
+        }
+
+        public ActionResult ShowAds()
+        {
+            adzadEntities adzadEntities = new adzadEntities();
+            return View(adzadEntities.pubs.ToList());
         }
     }
 }
