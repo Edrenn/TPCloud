@@ -17,11 +17,6 @@ namespace TPAzure.Controllers
             return View();
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            //Do somthing
-        }
-
         public void Add(pub newPub)
         {
             using (DAO.adzadEntities adzadEntities = new DAO.adzadEntities())
@@ -37,6 +32,15 @@ namespace TPAzure.Controllers
         {
             adzadEntities adzadEntities = new adzadEntities();
             return View(adzadEntities.pubs.ToList());
+        }
+
+        public void Delete(int id)
+        {
+            using (adzadEntities adzadEntities = new adzadEntities())
+            {
+                adzadEntities.pubs.Remove(adzadEntities.pubs.Where(p => p.id == id).FirstOrDefault());
+                adzadEntities.SaveChanges();
+            }
         }
     }
 }

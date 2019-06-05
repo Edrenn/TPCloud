@@ -7,7 +7,7 @@
 <h2>ShowAds</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Ajout", "Index", "Add")
 </p>
 <table class="table">
     <tr>
@@ -35,8 +35,6 @@
             @Html.DisplayFor(modelItem => item.url)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.id })
         </td>
     </tr>

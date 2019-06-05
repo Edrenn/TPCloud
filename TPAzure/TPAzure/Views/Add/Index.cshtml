@@ -2,11 +2,11 @@
 
 @model pub
 @{
-    ViewBag.Title = "Add";
+    ViewBag.Title = "Ajouter une pub";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
-@using (Html.BeginForm("Add", "Add", new { newAdvert = Model }, FormMethod.Post, new { @class = "form-horizontal", role = "form", @style = "color: black" }))
+@using (Html.BeginForm("Add", "Add", new { newAdvert = Model }, FormMethod.Get, new { @class = "form-horizontal", role = "form", @style = "color: black" }))
 {
 
     <div class="form-group">
@@ -36,7 +36,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Log in" formtarget="_self" class="btn btn-default" />
+            <input type="submit" value="Ajouter" formtarget="_blank" class="btn btn-default" />
         </div>
     </div>
 }
